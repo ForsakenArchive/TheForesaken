@@ -4,12 +4,83 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Forsaken Beyond</title>
-
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-
+  
   <style>
-    * {
+
+.ham-menu {
+  position: relative; 
+}
+
+.nav-menu {
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  transform: translateX(-50%); /* Thanks MDN */
+  background-color: #007BFF;
+  width: 200px;
+  padding: 10px 0;
+  border-radius: 5px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.ham-menu:hover .nav-menu,
+.ham-menu:focus-within .nav-menu {
+  display: block; 
+}
+
+
+
+
+ @media (max-width: 768px) {   
+nav ul {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7B68EE !important;
+  flex-direction: column;
+  width: 200px;
+  padding: 10px 0;
+  display: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+    
+ }
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  transition: color 0.3s;
+}
+body.dark-mode .hamburger {
+  color: white;
+}
+    
+    
+    
+    body.dark-mode .book {
+  background-color: #1e1e1e;
+  border-color: #7B68EE; 
+}
+
+body.dark-mode .book-info p {
+  color: #eee; 
+}
+
+body.dark-mode .book-info h3 {
+  color: #7B68EE; 
+}
+    *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -35,8 +106,17 @@
     a:hover {
       text-decoration: underline;
     }
-    
-    /* Header */
+
+    .dark-mode .book-section p {
+    color: black;
+    }
+    /*  Container(Nega) */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Header/Nav */
     header {
       width: 100%;
       background-color: #f8f8f8;
@@ -55,14 +135,16 @@
       justify-content: space-between;
       align-items: center;
       height: 60px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
     .brand {
-      font-size: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Cinzel Decorative', serif;
+    }
+    
+    .brand {
+      font-size: 1.5rem;
       font-weight: 700;
-      font-family: 'Cinzel Decorative', serif;
     }
     nav ul {
       list-style: none;
@@ -97,7 +179,6 @@
       border: none;
       cursor: pointer;
     }
-
     /* Mobile Nav */
     @media (max-width: 768px) {
       nav ul {
@@ -120,25 +201,84 @@
         display: block;
       }
     }
-
-    /* Hero Section */
+    /*  Hero Section */
     .hero {
-      margin-top: 60px;
+      margin-top: 60px; 
       position: relative;
       height: 70vh;
       min-height: 400px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    .hero img {
+    .slider {
+      position: relative;
+      height: 100%;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
-
-    /* Books Section */
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(123, 104, 238, 0.8);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 50px; 
+  height: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+    }
+    
+    .arrow:hover {
+      background-color: rgba(123, 104, 238, 1);
+    }
+    .arrow.prev {
+      left: 20px;
+    }
+    .arrow.next {
+      right: 20px;
+    }
+    /* Content Sections */
+    section {
+      padding: 80px 20px;
+    }
+    section .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    section p {
+      font-size: 1rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+    /* Books Section*/
     .books {
       display: flex;
       justify-content: space-between;
@@ -152,8 +292,6 @@
       overflow: hidden;
       background-color: #fafafa;
       transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
     }
     .book:hover {
       transform: scale(1.02);
@@ -161,16 +299,11 @@
     }
     .book img {
       width: 100%;
-      height: 300px;
+      
       object-fit: cover;
     }
     .book-info {
-      flex-grow: 1;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
     }
     .book-info h3 {
       margin-bottom: 10px;
@@ -178,7 +311,6 @@
       color: #7B68EE;
     }
     .book-info p {
-      flex-grow: 1;
       font-size: 1rem;
       margin-bottom: 15px;
     }
@@ -189,13 +321,17 @@
       border-radius: 4px;
       transition: background-color 0.3s;
       display: inline-block;
-      align-self: center;
     }
     .book-info a:hover {
       background-color: #5a46c3;
     }
-
-    /* Responsive */
+    @media (prefers-color-scheme: dark) {
+    .book-section p {
+        color: black;
+    }
+        }
+    
+    /*Responsiveness  */
     @media (max-width: 768px) {
       .books {
         flex-direction: column;
@@ -207,34 +343,47 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header/Nav -->
   <header>
-    <div class="nav-container">
-      <div class="brand">Forsaken</div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
-      <nav>
-        <ul id="nav-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#books">Books</a></li>
-          <li><a href="#lore">Lore</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="theme-toggle" id="theme-toggle">🌙</button>
+    <div class="container">
+      <div class="nav-container">
+        <div class="brand">Forsaken</div>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+        <nav>
+          <ul id="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#lore">Lore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle">🌙</button>
+      </div>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
-    <img src="precedent.png" alt="Precedent Book Cover">
+    <div class="slider">
+      <div class="slide active">
+        <img src="precedent.png" alt="Precedent Book Cover" />
+      </div>
+      <div class="slide">
+        <img src="duallever.png" alt="Dual-Lever Book Cover" />
+      </div>
+      <button class="arrow prev" id="prev">&#10094;</button>
+      <button class="arrow next" id="next">&#10095;</button>
+    </div>
   </section>
 
   <!-- About Section -->
   <section id="about">
     <div class="section-container">
       <h2>About the Authors</h2>
-      <p>We are two best friends and co-creators of an interconnected series called "Forsaken". Welcome to our story.</p>
+      <p>
+        We are two best friends and co-creators of an interconnected series called "Forsaken". Welcome to our story. 
+      </p>
     </div>
   </section>
 
@@ -243,24 +392,100 @@
     <div class="section-container">
       <h2>Our Books</h2>
       <div class="books">
+        <!-- Book: Precedent -->
         <div class="book">
-          <img src="precedent-bo.png" alt="Precedent Cover">
+          <img src="precedent-bo.png" alt="Precedent Cover" />
           <div class="book-info">
             <h3>Precedent</h3>
-            <p>A psychological thriller where truth is not found, instead it is made.</p>
-            <a href="#">Read More</a>
+            <p>
+              A psychological thriller where truth is not found, instead it is made. 
+            </p>
+            <a href="https://docs.google.com/document/d/1mdJs3b1RtMPPuyWKEsBz3AZvvx5ogFun8zSVQV05jKE/edit?usp=drivesdk" target="_blank">Read More</a>
           </div>
         </div>
+        <!-- Dual-Lever -->
         <div class="book">
-          <img src="duallever.png" alt="Dual Lever Cover">
+          <img src="duallever-bo.png" alt="Dual-Lever Cover" />
           <div class="book-info">
             <h3>Dual Lever</h3>
-            <p>"Survival Demands Everything." This story extends this concept to further beyond.</p>
-            <a href="#">Read More</a>
+            <p>
+              "Survival Demands Everything." This story extends this concept to further beyond.
+            </p>
+            <a href="https://docs.google.com/document/d/1n4PTjOlhDbLxG1RBpPak1CrLCBuOdJIKcRpG5SNyeeQ/edit?usp=drivesdk" target="_blank">Read More</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!---Lore Section -->
+  <section id="lore">
+    <div class="section-container">
+      <h2>The Lore</h2>
+      <p>
+        Everything leads to demise... Manuals coming soon. 
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section  -->
+  <section id="contact">
+    <div class="section-container">
+      <h2>Contact Us</h2>
+      <p>
+        Have some questions? Want to collaborate? Reach out at <a href="mailto:forsakenverse@tutamail.com">forsakenverse@tutamail.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- IndonesianMode -->
+  <script>
+    // Nega Mode
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Slider
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+    let currentSlide = 0;
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetInterval();
+    });
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetInterval();
+    });
+    function resetInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+  </script>
 </body>
 </html>
