@@ -9,78 +9,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
   
   <style>
-
-.ham-menu {
-  position: relative; 
-}
-
-.nav-menu {
-  position: absolute;
-  top: 100%; 
-  left: 50%;
-  transform: translateX(-50%); /* Thanks MDN */
-  background-color: #007BFF;
-  width: 200px;
-  padding: 10px 0;
-  border-radius: 5px;
-  display: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 999;
-}
-
-.ham-menu:hover .nav-menu,
-.ham-menu:focus-within .nav-menu {
-  display: block; 
-}
-
-
-
-
- @media (max-width: 768px) {   
-nav ul {
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #7B68EE !important;
-  flex-direction: column;
-  width: 200px;
-  padding: 10px 0;
-  display: none;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 999;
-}
-    
- }
-.hamburger {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: black;
-  transition: color 0.3s;
-}
-body.dark-mode .hamburger {
-  color: white;
-}
-    
-    
+    .ham-menu {
+      position: relative; 
+    }
+    .nav-menu {
+      position: absolute;
+      top: 100%; 
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #007BFF;
+      width: 200px;
+      padding: 10px 0;
+      border-radius: 5px;
+      display: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+    .ham-menu:hover .nav-menu,
+    .ham-menu:focus-within .nav-menu {
+      display: block; 
+    }
     
     body.dark-mode .book {
-  background-color: #1e1e1e;
-  border-color: #7B68EE; 
-}
-
-body.dark-mode .book-info p {
-  color: #eee; 
-}
-
-body.dark-mode .book-info h3 {
-  color: #7B68EE; 
-}
-    *{
+      background-color: #1e1e1e;
+      border-color: #7B68EE; 
+    }
+    body.dark-mode .book-info p {
+      color: #eee; 
+    }
+    body.dark-mode .book-info h3 {
+      color: #7B68EE; 
+    }
+    
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -106,17 +67,16 @@ body.dark-mode .book-info h3 {
     a:hover {
       text-decoration: underline;
     }
-
     .dark-mode .book-section p {
-    color: black;
+      color: black;
     }
-    /*  Container(Nega) */
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    /* Header/Nav */
+    
     header {
       width: 100%;
       background-color: #f8f8f8;
@@ -137,11 +97,10 @@ body.dark-mode .book-info h3 {
       height: 60px;
     }
     .brand {
-  font-size: 1.8rem;
-  font-weight: 700;
-  font-family: 'Cinzel Decorative', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Cinzel Decorative', serif;
     }
-    
     .brand {
       font-size: 1.5rem;
       font-weight: 700;
@@ -178,30 +137,13 @@ body.dark-mode .book-info h3 {
       background: none;
       border: none;
       cursor: pointer;
+      color: black;
+      transition: color 0.3s;
     }
-    /* Mobile Nav */
-    @media (max-width: 768px) {
-      nav ul {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: inherit;
-        flex-direction: column;
-        width: 200px;
-        padding: 10px 0;
-        display: none;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      nav ul li {
-        margin: 10px 0;
-      }
-      .hamburger {
-        display: block;
-      }
+    body.dark-mode .hamburger {
+      color: white;
     }
-    /*  Hero Section */
+    
     .hero {
       margin-top: 60px; 
       position: relative;
@@ -229,27 +171,26 @@ body.dark-mode .book-info h3 {
     .slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
     .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(123, 104, 238, 0.8);
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  width: 50px; 
-  height: 50px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-  border-radius: 50%;
-  transition: background-color 0.3s;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(123, 104, 238, 0.8);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      border-radius: 50%;
+      transition: background-color 0.3s;
     }
-    
     .arrow:hover {
       background-color: rgba(123, 104, 238, 1);
     }
@@ -259,7 +200,7 @@ body.dark-mode .book-info h3 {
     .arrow.next {
       right: 20px;
     }
-    /* Content Sections */
+    
     section {
       padding: 80px 20px;
     }
@@ -278,7 +219,7 @@ body.dark-mode .book-info h3 {
       margin: 0 auto 20px;
       text-align: center;
     }
-    /* Books Section*/
+    
     .books {
       display: flex;
       justify-content: space-between;
@@ -292,6 +233,8 @@ body.dark-mode .book-info h3 {
       overflow: hidden;
       background-color: #fafafa;
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
     }
     .book:hover {
       transform: scale(1.02);
@@ -299,11 +242,15 @@ body.dark-mode .book-info h3 {
     }
     .book img {
       width: 100%;
-      
+      height: 300px;
       object-fit: cover;
     }
     .book-info {
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
     }
     .book-info h3 {
       margin-bottom: 10px;
@@ -321,18 +268,40 @@ body.dark-mode .book-info h3 {
       border-radius: 4px;
       transition: background-color 0.3s;
       display: inline-block;
+      margin: 0 auto;
     }
     .book-info a:hover {
       background-color: #5a46c3;
     }
     @media (prefers-color-scheme: dark) {
-    .book-section p {
+      .book-section p {
         color: black;
+      }
     }
-        }
-    
-    /*Responsiveness  */
     @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #7B68EE;
+        flex-direction: column;
+        width: 200px;
+        padding: 10px 0;
+        display: none;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .hamburger {
+        display: block;
+      }
       .books {
         flex-direction: column;
       }
@@ -382,12 +351,12 @@ body.dark-mode .book-info h3 {
     <div class="section-container">
       <h2>About the Authors</h2>
       <p>
-        We are two best friends and co-creators of an interconnected series called "Forsaken". Welcome to our story. 
+        We are two best friends and co-creators of an interconnected series called "Forsaken". Welcome to our story.
       </p>
     </div>
   </section>
 
-  <!-- Books Section -->
+  <!-- Books Section-->
   <section id="books">
     <div class="section-container">
       <h2>Our Books</h2>
@@ -398,7 +367,7 @@ body.dark-mode .book-info h3 {
           <div class="book-info">
             <h3>Precedent</h3>
             <p>
-              A psychological thriller where truth is not found, instead it is made. 
+              A psychological thriller where truth is not found, instead it is made.
             </p>
             <a href="https://docs.google.com/document/d/1mdJs3b1RtMPPuyWKEsBz3AZvvx5ogFun8zSVQV05jKE/edit?usp=drivesdk" target="_blank">Read More</a>
           </div>
@@ -423,7 +392,7 @@ body.dark-mode .book-info h3 {
     <div class="section-container">
       <h2>The Lore</h2>
       <p>
-        Everything leads to demise... Manuals coming soon. 
+        Everything leads to demise... Manuals coming soon.
       </p>
     </div>
   </section>
@@ -447,7 +416,6 @@ body.dark-mode .book-info h3 {
       themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
 
-    
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => {
