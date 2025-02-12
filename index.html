@@ -324,22 +324,23 @@
     .genre:hover {
       opacity: 0.8;
     }
-
-    /* GISCUS */
-    
+      /* GISCUS */
 .giscus-frame {
-    max-width: 800px; 
-    margin: 0 auto;   
-    border: 2px solid #f1f1f1; /
-    border-radius: 10px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100%;     
+}
+    giscus-frame iframe {
+    height: 100%;
+    width: 100%;
 }
 
-
 .giscus {
-    background-color: #f0f0f0; 
+    background-color: #121212; 
     padding: 20px; 
     border-radius: 8px; 
-
+}
 
 .giscus textarea {
     background-color: #fff; 
@@ -360,20 +361,21 @@
     background-color: #0033aa; 
 }
 
-    /* FOOTER */
-    footer {
-      background: #1e1e1e;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    footer a {
-      color: #7B68EE;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
+/* FOOTER */
+footer {
+    background: #1e1e1e;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+}
+footer a {
+    color: #7B68EE;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
 
     /* RESPONSIVENESS */
     @media (max-width: 768px) {
