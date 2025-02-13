@@ -324,42 +324,6 @@
     .genre:hover {
       opacity: 0.8;
     }
-      /* GISCUS */
-.giscus-frame {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    height: 100%;     
-}
-    giscus-frame iframe {
-    height: 100%;
-    width: 100%;
-}
-
-.giscus {
-    background-color: #121212; 
-    padding: 20px; 
-    border-radius: 8px; 
-}
-
-.giscus textarea {
-    background-color: #fff; 
-    border: 1px solid #ddd; 
-    color: #333; 
-    border-radius: 5px;
-}
-
-.giscus button {
-    background-color: #0044cc; 
-    color: white; 
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.giscus button:hover {
-    background-color: #0033aa; 
-}
 
 /* FOOTER */
 footer {
@@ -525,25 +489,23 @@ footer a:hover {
       </p>
     </div>
   </section>
-<!-- GISCUS -->
- <script src="https://giscus.app/client.js"
-        data-repo="ForsakenArchive/TheForsaken"
-        data-repo-id="R_kgDON3qbhA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDON3qbhM4Cm6B9"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="noborder_dark"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
 
   <!-- FOOTER -->
   <footer>
+  <div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="e10f6f1e-d9a0-4d0a-9e9d-6e17f108dabd"
+  data-page-id=""
+  data-page-url=""
+  data-page-title=""> 
+  </div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<script>
+  document.getElementById("cusdis_thread").setAttribute("data-page-id", window.location.pathname);
+  document.getElementById("cusdis_thread").setAttribute("data-page-url", window.location.href);
+  document.getElementById("cusdis_thread").setAttribute("data-page-title", document.title);
+</script>
+
     <p>&copy; 2025 Forsaken. All rights reserved. | Designed with love for stories.</p>
   </footer>
 
